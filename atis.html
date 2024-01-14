@@ -1,0 +1,31 @@
+<html>
+    <head></head>
+    <body>
+        Hello atis <br>
+        <div id="v"></div>
+    <script>
+            function calculateOddEven(p){
+                if((p%2)==0){
+                    l=":even";
+                }
+                else{
+                    l=":odd";
+                }
+                    
+                return l;
+            }
+        
+
+            for(i=1;i<4;i++){
+                for(k=1;k<4;k++){
+                    o=i*k;
+                    l=calculateOddEven(o);
+                    v= document.getElementById("v");
+                    v.innerHTML=v.innerHTML+"<br>"+o+l;
+                }
+            }
+
+
+        </script>
+    </body>
+</html>

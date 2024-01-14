@@ -1,0 +1,58 @@
+<html>
+    <head></head>
+    <body>
+        Hello atis <br>
+        <div id="v">0</div>
+        <button onclick="resetFunction()">Reset</button>
+        <button onclick="startFunction()">start</button>
+        <button onclick="stopFunction()">stop</button>
+    <script>
+        var isStarted;
+
+        var i=0;
+        var min = 0;
+        function stopwatch(){
+            v= document.getElementById("v");
+            if(i<60){
+                var sec = i;
+                }
+            else{
+                var sec = i%60;
+                i = i-60;
+                min = min+1;
+            }
+                v.innerHTML=min+":"+sec;
+                
+            i=i+1;
+            }
+        var timer;
+        startFunction();
+           
+            
+           
+        
+
+        function resetFunction() {
+            i = 0 ;
+            min = 0;
+            sec = 0;
+            v.innerHTML=min+":"+sec;
+        
+        }
+
+        function startFunction() {
+            if(isStarted) {
+                alert("already started...");
+                return;
+            }
+            isStarted=true;
+            timer=setInterval(stopwatch,1000);
+
+        }
+        function stopFunction() {
+            clearInterval(timer);
+            isStarted=false;
+        }
+        </script>
+    </body>
+</html>

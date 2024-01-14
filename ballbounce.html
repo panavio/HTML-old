@@ -1,0 +1,125 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <canvas id="circlecanvas" ></canvas>
+    <script>
+        var canvas = document.getElementById('circlecanvas');
+        canvas.height=646;
+        canvas.width=1358;
+        var ctx = canvas.getContext('2d');
+
+
+        var X = [30, 90, 200, 500, 800, 1220];
+        var Y = [30, 50, 230, 350, 430,570];
+        var canvash=644;
+        var canvasw=1356;
+        var hex = "#85E3FF";
+            var distanceX = [0,0,3,4,5,6];
+            var distanceY = [1,2,3,4,5,6];
+            var limitY = canvash-22;
+            var limitX = canvasw-22;
+            var color = ["#85E3FF" , "#FFCCF9" , "#FFF58A" , "#D5AAFF" , "#FFABAB"];
+
+        create();
+        setInterval(moveall,1);
+
+
+        function draw(X,Y,hex){
+                var R = 20;
+                ctx.beginPath();
+                ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = hex;
+                ctx.stroke();
+                ctx.fillStyle = hex;
+                ctx.fill();           
+        }
+        function create(){
+            for (i=0;i<6;i++){
+                draw(X[i],Y[i],color[i]);
+                X[i]=X[i]+distanceX[i];
+                Y[i]=Y[i]+distanceY[i];
+
+            }
+         
+        }
+        function movement (i, ballX, ballY, balldistanceX, balldistanceY){
+            
+            if ((ballY<limitY)&&(ballX<limitX)&&(ballY>21)&&(ballX>21)){
+                draw(ballX,ballY,color[i]);
+                X[i]=ballX+balldistanceX;
+                Y[i]=ballY+balldistanceY;
+                
+            }
+            else{
+                if ((ballY>=limitY)||(ballY<=21)){
+                    if (balldistanceX>0){
+                        balldistanceX=Math.random()*(5);
+                        distanceX[i]=balldistanceX;
+                        X[i]=ballX+balldistanceX;
+                    }
+                    else{
+                        balldistanceX=Math.random()*(-5);
+                        distanceX[i]=balldistanceX;
+                        X[i]=ballX+balldistanceX;
+                    }
+                    
+                    if (balldistanceY>0){
+                        balldistanceY=Math.random()*(-5);
+                        distanceY[i]=balldistanceY;
+                        Y[i]=ballY+balldistanceY;
+                    }
+                    else{
+                        balldistanceY=Math.random()*(5);
+                        distanceY[i]=balldistanceY;
+                        Y[i]=ballY+balldistanceY;
+                    }
+                    
+                }
+                if ((ballX>=limitX)||(ballX<=21)){
+                    if (balldistanceY>0){
+                        balldistanceY=Math.random()*(5);
+                        distanceY[i]=balldistanceY;
+                        Y[i]=ballY+balldistanceY;
+                    }
+                    else{
+                        balldistanceY=Math.random()*(-5);
+                        distanceY[i]=balldistanceY;
+                        Y[i]=ballY+balldistanceY;
+                    }
+                    if (balldistanceX>0){
+                        balldistanceX=Math.random()*(-5);
+                        distanceX[i]=balldistanceX;
+                        X[i]=ballX+balldistanceX;
+                    }
+                    else{
+                        balldistanceX=Math.random()*(5);
+                        distanceX[i]=balldistanceX;
+                        X[i]=ballX+balldistanceX;
+                    }
+                    
+                }
+
+                var b = parseInt(Math.random()*(color.length+1));
+                hex = color[b];
+
+            }
+        }
+        function moveall(){
+        canvas.height=646;
+        canvas.width=1358;
+            for(a=0;a<6;a++){
+                movement(a, X[a], Y[a], distanceX[a], distanceY[a]);
+            }
+        
+        }
+
+
+
+        
+    </script>
+    
+    </body>
+</html>

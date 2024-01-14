@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            
+        Calculator<br>
+            <div id="v">&nbsp;</div>
+
+            
+            <button type="button" class="btn btn-primary"style="height:40px;width:85px" onclick="buttonclear()">Clear</button>
+
+            <br>
+            <button type="button" class="btn btn-light" style="height:40px;width:40px" onclick="Numbercalculate(7)">7</button>
+            <button type="button" class="btn btn-light" style="height:40px;width:40px"onclick="Numbercalculate(8)">8</button>
+            <button type="button" class="btn btn-light" style="height:40px;width:40px"onclick="Numbercalculate(9)">9</button>
+            <button type="button" class="btn btn-info"style="height:40px;width:40px" onclick="OperationFun('+')">+</button>
+
+            <br>
+            <button type="button" class="btn btn-light" style="height:40px;width:40px"onclick="Numbercalculate(4)">4</button>
+            <button type="button" class="btn btn-light" style="height:40px;width:40px"onclick="Numbercalculate(5)">5</button>
+            <button type="button" class="btn btn-light" style="height:40px;width:40px"onclick="Numbercalculate(6)">6</button>
+            <button type="button" class="btn btn-info"style="height:40px;width:40px" onclick="OperationFun('-')">-</button>
+
+            <br>
+            <button type="button" class="btn btn-light" style="height:40px;width:40px"onclick="Numbercalculate(1)">1</button>
+            <button type="button" class="btn btn-light" style="height:40px;width:40px"onclick="Numbercalculate(2)">2</button>
+            <button type="button" class="btn btn-light" style="height:40px;width:40px"onclick="Numbercalculate(3)">3</button>
+            <button type="button" class="btn btn-info"style="height:40px;width:40px" onclick="OperationFun('x')">x</button>
+
+            <br>
+            <button type="button" class="btn btn-light" style="height:40px;width:85px" onclick="Numbercalculate(0)">0</button>
+            <button type="button" class="btn btn-info"style="height:40px;width:40px" onclick="OperationFun('÷')">÷</button>
+            <button type="button" class="btn btn-info"style="height:40px;width:40px" onclick="Equalfun()">=</button>
+
+        </div>
+    <script>
+       
+        function Numbercalculate(number){
+            v= document.getElementById("v");
+            v.innerHTML=v.innerHTML+number;
+        }
+
+        function OperationFun (operation){
+            v= document.getElementById("v");
+            v.innerHTML=v.innerHTML+operation;
+        }
+
+        function buttonclear(){
+            v= document.getElementById("v");
+            v.innerHTML="&nbsp;";
+            
+        }
+
+        function Equalfun(){
+            v= document.getElementById("v");
+            var str=v.innerHTML;
+            str=str.replace("&nbsp;","");
+            str=str.replace("x","*");
+            str=str.replace("÷","/");
+            var b = eval(str);
+            v.innerHTML=b;
+
+        }
+    </script>
+    </body>
+</html>

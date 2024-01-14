@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            
+            <div  id="v">Name the text colour shown below</div>
+            <br>
+            <p><font style = "color:#85E3FF" size="8" id = "text">Pink</font></p>
+        </div>
+    <script>
+        var texts  = ["Pink", "Yellow", "Blue", "Purple", "Orange"];
+        //Randomtext();
+        setInterval(Randomtext,1000);
+
+        var color = ["#85E3FF" , "#FFCCF9" , "#FFF58A" , "#D5AAFF" , "#FFABAB"];
+        function Randomtext(){
+            text= document.getElementById("text");
+            var a = parseInt((Math.random()*(texts.length+1)-1));
+            var b = parseInt(Math.random()*(color.length+1));
+            text.innerHTML=texts[a];
+            //text.style.color = #color[b];
+            var hex = color[b];
+            text.style.color = hex;
+            //setTimeout(Randomtext(),1000);
+        }
+        //setInterval(Randomtext(),1000);
+
+    </script>
+    </body>
+</html>
